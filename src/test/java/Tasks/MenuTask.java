@@ -1,7 +1,10 @@
 package Tasks;
 
 import Framework.Browser.Waits;
+import Framework.Report.Report;
+import Framework.Report.Screenshot;
 import Pages.MenuPage;
+import com.aventstack.extentreports.Status;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
@@ -25,8 +28,15 @@ public class MenuTask {
     }
 
     private  void validaPaginaForm(){
-        String text = menuPage.getTextTitle().getText();
-        Assertions.assertEquals("Lista de Funcionalidades",text);
+        try{
+            String text = menuPage.getTextTitle().getText();
+            Assertions.assertEquals("Lista de Funcionalidades",text);
+            Report.extentTest.log(Status.PASS, "PAGINA DE ACESSO AO FORM CARREGADA COM SUCESSO", Screenshot.base64(driver));
+        }catch (Exception e){
+            Report.extentTest.log(Status.FAIL, Screenshot.base64(driver));
+        }
+
+
     }
 
 }
