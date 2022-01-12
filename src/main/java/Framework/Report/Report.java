@@ -21,7 +21,7 @@ public class Report {
 
         sparkReporter = new ExtentSparkReporter(PATH_REPORT + File.separator + "Execucao_" +
 
-                DateTime.getDateTimeFormat() + ".htmal");
+                DateTime.getDateTimeFormat() + ".html");
 
         sparkReporter.config().setDocumentTitle("Relatorio de Execução de Testes Automatizados");
         sparkReporter.config().setReportName("Relatorio de Execucao Cadastro Site do Batista");
